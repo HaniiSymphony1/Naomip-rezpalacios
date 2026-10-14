@@ -1,0 +1,215 @@
+/* =========================================================
+   PORTAFOLIO · Naomi Alonso
+   Paleta tomada de PORTAFOLIO_2026.pdf
+   ========================================================= */
+:root {
+  --rojo:        #A6231A;  /* títulos, estrellas */
+  --rojo-cinta:  #853122;  /* cinta de la portada */
+  --durazno:     #FDE3D5;  /* papel */
+  --crema:       #FDF2EB;  /* cuadros claros */
+  --azul-vichy:  #B6C9D3;  /* cuadros azules */
+  --rosa:        #FD9F93;  /* lazo y líneas */
+
+  --fuente-titulo: "Abril Fatface", Georgia, serif;
+  --fuente-texto:  "Libre Baskerville", Georgia, serif;
+  --fuente-firma:  "Caveat", cursive;
+}
+
+/* ---------- Base ---------- */
+html { scroll-behavior: smooth; scroll-padding-top: 70px; }
+body {
+  font-family: var(--fuente-texto);
+  color: var(--rojo);
+  background-color: var(--crema);
+  line-height: 1.7;
+}
+h1, h2, h3 { font-weight: 400; }
+h3 {
+  font-family: var(--fuente-texto);
+  font-weight: 700;
+  font-size: 1.05rem;
+  margin-top: 1.2rem;
+}
+a { color: var(--rojo); }
+a:focus-visible, .navbar-toggler:focus-visible {
+  outline: 3px solid var(--rojo);
+  outline-offset: 3px;
+}
+
+/* ---------- Fondo de cuadros (vichy) ---------- */
+.vichy {
+  background-color: var(--crema);
+  background-image:
+    linear-gradient(90deg, rgba(182, 201, 211, .75) 50%, transparent 50%),
+    linear-gradient(rgba(182, 201, 211, .75) 50%, transparent 50%);
+  background-size: 48px 48px;
+}
+
+/* ---------- Menú ---------- */
+.barra-menu {
+  background-color: var(--durazno);
+  border-bottom: 3px dashed var(--rosa);
+}
+.marca {
+  font-family: var(--fuente-firma);
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--rojo);
+}
+.barra-menu .nav-link { color: var(--rojo); font-size: .95rem; }
+.barra-menu .nav-link:hover { text-decoration: underline wavy var(--rosa); text-underline-offset: 6px; }
+
+/* ---------- Portada ---------- */
+.portada {
+  position: relative;
+  min-height: 88vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 3rem 1rem;
+}
+.papel-roto {
+  position: relative;
+  width: min(900px, 100%);
+  padding: 6rem 2rem 5rem;
+  background-color: var(--durazno);
+  /* bordes rotos */
+  clip-path: polygon(0 6%, 8% 0, 22% 4%, 38% 0, 55% 5%, 72% 0, 88% 4%, 100% 1%,
+                     99% 30%, 100% 55%, 98% 80%, 100% 97%, 85% 100%, 68% 96%,
+                     50% 100%, 30% 97%, 12% 100%, 0 95%, 2% 65%, 0 35%);
+}
+.cinta {
+  position: absolute;
+  top: 1.8rem;
+  left: 8%;
+  transform: rotate(-6deg);
+  background: var(--rojo-cinta);
+  color: var(--crema);
+  font-family: var(--fuente-firma);
+  font-size: 1.3rem;
+  padding: .1rem 1.4rem;
+  border-left: 14px solid var(--crema);
+}
+.titulo-portada {
+  font-family: var(--fuente-titulo);
+  font-size: clamp(3rem, 12vw, 8rem);
+  line-height: 1;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+  margin: 0;
+}
+.firma {
+  font-family: var(--fuente-firma);
+  font-size: 2rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* Línea con corazón (lazo del PDF) */
+.separador {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  max-width: 520px;
+  margin: 1rem auto;
+  color: var(--rosa);
+}
+.separador span { flex: 1; border-top: 2px solid var(--rosa); }
+
+/* Estrellas decorativas con puntos (halftone) */
+.estrella {
+  position: absolute;
+  font-size: clamp(5rem, 14vw, 12rem);
+  line-height: 1;
+  color: var(--rojo);
+  pointer-events: none;
+  /* trama de puntos sobre la estrella */
+  background: radial-gradient(circle, var(--rojo) 35%, transparent 38%) 0 0 / 9px 9px;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.estrella-1 { left: 3%;  bottom: 4%; transform: rotate(-12deg); }
+.estrella-2 { right: 3%; top: 8%;    transform: rotate(14deg); }
+
+/* ---------- Secciones ---------- */
+.seccion { padding: 5rem 0; }
+.seccion-papel { background-color: var(--durazno); }
+
+.titulo-seccion {
+  font-family: var(--fuente-titulo);
+  font-size: clamp(2.2rem, 6vw, 3.8rem);
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+.titulo-proyecto {
+  font-family: var(--fuente-titulo);
+  font-size: clamp(3rem, 9vw, 5.5rem);
+  text-align: center;
+  text-transform: uppercase;
+  margin: 0;
+}
+.subtitulo { text-align: center; font-size: 1.2rem; }
+
+/* ---------- Platos del contenido ---------- */
+.plato {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1 / 1;
+  max-width: 260px;
+  margin: 0 auto;
+  border-radius: 50%;
+  background: #fff;
+  border: 6px solid var(--rojo);
+  box-shadow: inset 0 0 0 10px var(--crema);
+  text-decoration: none;
+  text-align: center;
+  padding: 1rem;
+  transition: transform .2s ease;
+}
+.plato span {
+  font-family: var(--fuente-titulo);
+  font-size: clamp(1.1rem, 3vw, 1.7rem);
+  text-transform: uppercase;
+  color: var(--rojo);
+}
+a.plato:hover { transform: rotate(-4deg) scale(1.04); }
+.plato-vacio { border-style: dashed; border-color: var(--rosa); }
+.plato-vacio span { font-family: var(--fuente-firma); font-size: 1.6rem; text-transform: none; color: var(--rosa); }
+
+/* ---------- Imágenes y tarjetas ---------- */
+.foto {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background-color: var(--azul-vichy);   /* se ve mientras no pongas tu imagen */
+  border: 6px solid #fff;
+  box-shadow: 4px 4px 0 var(--rosa);
+}
+.tarjeta {
+  background: #fff;
+  padding: 1rem 1rem .5rem;
+  border: 2px solid var(--rojo);
+}
+.tarjeta .foto { border: 0; box-shadow: none; }
+.tarjeta p { margin: .8rem 0 .4rem; text-align: center; font-size: .95rem; }
+
+/* ---------- Contacto ---------- */
+.pie { padding: 4rem 0; }
+.pie .container {
+  background: var(--durazno);
+  max-width: 640px;
+  padding: 2.5rem 1.5rem;
+  border: 3px dashed var(--rosa);
+}
+.pie .titulo-seccion { margin-bottom: 1rem; }
+.enlace-pie { font-weight: 700; }
+
+/* ---------- Accesibilidad ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .plato { transition: none; }
+}
